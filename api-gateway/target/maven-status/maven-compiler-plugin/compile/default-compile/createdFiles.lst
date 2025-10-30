@@ -1,0 +1,2 @@
+com\example\gateway\filter\JwtAuthenticationFilter.class
+com\example\gateway\GatewayApplication.class

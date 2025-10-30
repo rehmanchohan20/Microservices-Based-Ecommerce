@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: auth
+          uri: http://localhost:8081
+          predicates:
+            - Path=/auth/**
+        - id: products
+          uri: http://localhost:8082
+          predicates:
+            - Path=/products/** 
+#          filters:
+#            - StripPrefix=1
+  application:
+    name: api-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+jwt:
+    secret: ${JWT_SECRET_KEY}
