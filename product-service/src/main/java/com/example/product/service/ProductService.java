@@ -58,8 +58,13 @@ public class ProductService {
     }
 
     private Product getOrCreateProduct(Long id) {
-        return productRepository.findById(id).orElse(new Product());
+        if (id == null) {
+            return new Product();
+        }
+        return productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found for ID: " + id));
     }
+
 
     private void validations(ProductVo productVo, boolean isUpdate) {
         if(Objects.isNull(productVo)){

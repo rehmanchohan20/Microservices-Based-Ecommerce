@@ -1,6 +1,7 @@
 package com.example.product.controller;
 
 import com.example.product.VOs.ProductVo;
+import com.example.product.customAnnotations.CurrentUser;
 import com.example.product.model.Product;
 import com.example.product.repo.ProductRepository;
 import com.example.product.response.Response;
@@ -30,7 +31,9 @@ public class ProductController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> create(@Valid @RequestBody ProductVo productVo){
+    public ResponseEntity<?> create(@CurrentUser String username,
+            @Valid @RequestBody ProductVo productVo){
+        System.out.println("Current User: " + username);
         Response response = productService.create(productVo);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
