@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 0 # optional: picks free port automatically
 
 spring:
   application:
@@ -32,3 +32,6 @@ eureka:
     prefer-ip-address: true
     health-check-url-path: /actuator/health
     status-page-url-path: /actuator/info
+
+jwt:
+  secret: ${JWT_SECRET_KEY}

@@ -1,18 +1,32 @@
 server:
-  port: 8080
+  port: 8080 # optional: picks free port automatically
 
 spring:
   cloud:
     gateway:
       routes:
         - id: auth
-          uri: http://localhost:8081
+          uri: lb://auth-service
           predicates:
             - Path=/auth/**
         - id: products
-          uri: http://localhost:8082
+          uri: lb://product-service
           predicates:
-            - Path=/products/** 
+            - Path=/products/**
+
+
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: auth
+#          uri: http://localhost:8081
+#          predicates:
+#            - Path=/auth/**
+#        - id: products
+#          uri: http://localhost:8082
+#          predicates:
+#            - Path=/products/**
 #          filters:
 #            - StripPrefix=1
   application:

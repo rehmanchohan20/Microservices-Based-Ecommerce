@@ -1,5 +1,16 @@
-/target
-*.log
+# Java / Maven
+target/
+*.class
+*.jar
+*.war
+
+# IntelliJ / Eclipse
+.idea/
 *.iml
-/.idea
-/.vscode
+*.ipr
+*.iws
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
