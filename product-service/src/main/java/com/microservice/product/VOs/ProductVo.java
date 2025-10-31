@@ -1,4 +1,4 @@
-package com.example.product.VOs;
+package com.microservice.product.VOs;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.DecimalMin;

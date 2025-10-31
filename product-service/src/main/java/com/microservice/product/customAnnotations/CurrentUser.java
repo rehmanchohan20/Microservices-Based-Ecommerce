@@ -1,4 +1,4 @@
-package com.example.product.customAnnotations;
+package com.microservice.product.customAnnotations;
 
 import java.lang.annotation.*;
 

@@ -1,4 +1,4 @@
-package com.example.product.exceptions;
+package com.microservice.auth.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException {
     public ResourceNotFoundException(String message) {

@@ -1,4 +1,4 @@
-package com.microservice.product.config;
+package com.microservice.auth.config;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

@@ -1,18 +1,15 @@
-package com.example.product.controller;
+package com.microservice.product.controller;
 
-import com.example.product.VOs.ProductVo;
-import com.example.product.customAnnotations.CurrentUser;
-import com.example.product.model.Product;
-import com.example.product.repo.ProductRepository;
-import com.example.product.response.Response;
-import com.example.product.service.ProductService;
+import com.microservice.product.VOs.ProductVo;
+import com.microservice.product.customAnnotations.CurrentUser;
+import com.microservice.product.repo.ProductRepository;
+import com.microservice.product.response.Response;
+import com.microservice.product.service.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.List;
 
 @RestController
 @RequestMapping("/products")

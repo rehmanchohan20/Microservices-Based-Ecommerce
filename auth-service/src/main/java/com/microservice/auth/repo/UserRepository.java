@@ -1,6 +1,6 @@
-package com.example.auth.repo;
+package com.microservice.auth.repo;
 
-import com.example.auth.model.User;
+import com.microservice.auth.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.example.product.response;
+package com.microservice.auth.response;
 import lombok.Data;
 
 import java.time.LocalDateTime;

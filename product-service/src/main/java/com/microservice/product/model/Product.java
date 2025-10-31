@@ -1,4 +1,4 @@
-package com.example.product.model;
+package com.microservice.product.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

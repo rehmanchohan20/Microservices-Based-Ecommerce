@@ -1,4 +1,4 @@
-package com.example.gateway.filter;
+package com.microservice.gateway.filter;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

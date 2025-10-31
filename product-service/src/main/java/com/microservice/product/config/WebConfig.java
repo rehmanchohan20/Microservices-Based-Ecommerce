@@ -1,6 +1,6 @@
-package com.example.product.config;
+package com.microservice.product.config;
 
-import com.example.product.customAnnotations.resolver.CurrentUserArgumentResolver;
+import com.microservice.product.customAnnotations.resolver.CurrentUserArgumentResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;

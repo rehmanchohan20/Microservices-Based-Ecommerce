@@ -1,15 +1,14 @@
-package com.example.product.service;
+package com.microservice.product.service;
 
 import ch.qos.logback.core.util.StringUtil;
-import com.example.product.VOs.ProductVo;
-import com.example.product.exceptions.ResourceNotFoundException;
-import com.example.product.model.Product;
-import com.example.product.repo.ProductRepository;
-import com.example.product.response.Response;
+import com.microservice.product.VOs.ProductVo;
+import com.microservice.product.exceptions.ResourceNotFoundException;
+import com.microservice.product.model.Product;
+import com.microservice.product.repo.ProductRepository;
+import com.microservice.product.response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Objects;

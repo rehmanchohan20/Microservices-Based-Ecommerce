@@ -1,9 +1,13 @@
-package com.example.auth.controller;
+package com.microservice.auth.controller;
 
-import com.example.auth.model.User;
-import com.example.auth.repo.UserRepository;
-import com.example.auth.util.JwtUtil;
+import com.microservice.auth.model.User;
+import com.microservice.auth.repo.UserRepository;
+import com.microservice.auth.response.Response;
+import com.microservice.auth.service.AuthService;
+import com.microservice.auth.util.JwtUtil;
+import com.microservice.auth.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;
@@ -14,37 +18,41 @@ import java.util.Optional;
 public class AuthController {
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private JwtUtil jwtUtil;
+    private AuthService authService;
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody User user){
-        if(userRepository.findByUsername(user.getUsername()).isPresent()){
-            return ResponseEntity.badRequest().body(Map.of("error","username exists"));
-        }
-        // NOTE: password not hashed in this skeleton — add BCrypt in production
-        userRepository.save(user);
-        return ResponseEntity.ok(Map.of("status","registered"));
+    public ResponseEntity<?> register(@RequestBody UserVo userVo){
+        Response response =  authService.register(userVo);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<?> update(@RequestBody UserVo userVo){
+        Response response =  authService.register(userVo);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody Map<String,String> payload){
-        String username = payload.get("username");
-        String password = payload.get("password");
-        Optional<User> byUsername = userRepository.findByUsername(username);
-        if(byUsername.isEmpty() || !byUsername.get().getPassword().equals(password)){
-            return ResponseEntity.status(401).body(Map.of("error","invalid credentials"));
-        }
-        String token = jwtUtil.generateToken(username);
-        return ResponseEntity.ok(Map.of("token", token));
+    public ResponseEntity<?> login(@RequestBody UserVo userVo){
+        Response response = authService.login(userVo);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/list")
+    public ResponseEntity<?> list(){
+        Response response = authService.listUsers();
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/user/{id}")
+    public ResponseEntity<?> getUser(@PathVariable("id") Long id){
+        Response response = authService.getUser(id);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping("/validate")
     public ResponseEntity<?> validate(@RequestHeader("Authorization") String auth){
-        String token = auth.replace("Bearer ","");
-        boolean ok = jwtUtil.validateToken(token);
-        return ResponseEntity.ok(Map.of("valid", ok));
+        Response response = authService.validateToken(auth);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

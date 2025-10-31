@@ -1,6 +1,6 @@
-package com.example.product.customAnnotations.resolver;
+package com.microservice.product.customAnnotations.resolver;
 
-import com.example.product.customAnnotations.CurrentUser;
+import com.microservice.product.customAnnotations.CurrentUser;
 import org.springframework.core.MethodParameter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

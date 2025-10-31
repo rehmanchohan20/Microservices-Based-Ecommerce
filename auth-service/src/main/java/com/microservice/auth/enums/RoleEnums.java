@@ -1,4 +1,7 @@
 package com.microservice.auth.enums;
 
-public class RoleEnums {
+public enum RoleEnums {
+    BUYER,
+    SELLER,
+    ADMIN
 }

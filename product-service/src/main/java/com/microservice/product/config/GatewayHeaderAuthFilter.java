@@ -1,4 +1,4 @@
-package com.example.product.config;
+package com.microservice.product.config;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

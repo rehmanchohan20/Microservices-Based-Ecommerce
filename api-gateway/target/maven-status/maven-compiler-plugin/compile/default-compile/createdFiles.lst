@@ -1,2 +1,2 @@
-com\example\gateway\filter\JwtAuthenticationFilter.class
-com\example\gateway\GatewayApplication.class
+com\microservice\gateway\filter\JwtAuthenticationFilter.class
+com\microservice\gateway\GatewayApplication.class

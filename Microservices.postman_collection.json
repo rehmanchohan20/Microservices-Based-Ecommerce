@@ -1,0 +1,321 @@
+{
+	"info": {
+		"_postman_id": "69afe34f-4a32-435e-9c57-835e1eb1e7ae",
+		"name": "Microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35155461",
+		"_collection_link": "https://my-voucher.postman.co/workspace/My-Voucher-Workspace~48208c45-30c4-4145-9737-3751a522c2d4/collection/35155461-69afe34f-4a32-435e-9c57-835e1eb1e7ae?action=share&source=collection_link&creator=35155461"
+	},
+	"item": [
+		{
+			"name": "User Management",
+			"item": [
+				{
+					"name": "auth-service",
+					"item": [
+						{
+							"name": "/register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"shahbaz\",\r\n  \"password\": \"123456\",\r\n  \"email\": \"shahbaz@example.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"rehman\",\r\n    \"password\":\"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZWhtYW4iLCJpYXQiOjE3NjE5MTc4NTYsImV4cCI6MTc2MjAwNDI1Nn0.2RX_Tr_UQals37WZ3NhZubAM3gVSOW-zhJUw6-0J7qE",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/auth/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"list"
+									],
+									"query": [
+										{
+											"key": "Authorization",
+											"value": "Beareer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZWhtYW4iLCJpYXQiOjE3NjE5MTc4NTYsImV4cCI6MTc2MjAwNDI1Nn0.2RX_Tr_UQals37WZ3NhZubAM3gVSOW-zhJUw6-0J7qE",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/userById",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZWhtYW4iLCJpYXQiOjE3NjE5MTc4NTYsImV4cCI6MTc2MjAwNDI1Nn0.2RX_Tr_UQals37WZ3NhZubAM3gVSOW-zhJUw6-0J7qE",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/auth/user/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"user",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/validate Token",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZWhtYW4iLCJpYXQiOjE3NjE5MTc4NTYsImV4cCI6MTc2MjAwNDI1Nn0.2RX_Tr_UQals37WZ3NhZubAM3gVSOW-zhJUw6-0J7qE",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/auth/validate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"validate"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "product-service",
+					"item": [
+						{
+							"name": "get-all",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZWhtYW4iLCJpYXQiOjE3NjE4OTIyMzcsImV4cCI6MTc2MTk3ODYzN30.1pSUT-dExc-1vAxZM3BqTkES0-vGT3RTh6cR_wdKpOY"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/products/get-all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"products",
+										"get-all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "product-by-id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZWhtYW4iLCJpYXQiOjE3NjE4MjE3MjcsImV4cCI6MTc2MTkwODEyN30.hpc6yO_NbcIxMO-y7YIJgMNj6UyuxZhaYE57hQe8o5U"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/products/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"products",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/add",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZWhtYW4iLCJpYXQiOjE3NjE4MjE3MjcsImV4cCI6MTc2MTkwODEyN30.hpc6yO_NbcIxMO-y7YIJgMNj6UyuxZhaYE57hQe8o5U"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n      \"name\": \"Laptop\",\n      \"description\": \"High-end gaming Laptop\",\n      \"price\": 150000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/products/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"products",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/update/product",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZWhtYW4iLCJpYXQiOjE3NjE4MjE3MjcsImV4cCI6MTc2MTkwODEyN30.hpc6yO_NbcIxMO-y7YIJgMNj6UyuxZhaYE57hQe8o5U"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n      \"name\": \"Laptop Pro\",\n      \"description\": \"Updated high-end gaming laptop\",\n      \"price\": 170000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/products/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"products",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZWhtYW4iLCJpYXQiOjE3NjE4MjE3MjcsImV4cCI6MTc2MTkwODEyN30.hpc6yO_NbcIxMO-y7YIJgMNj6UyuxZhaYE57hQe8o5U"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/products/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"products",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
