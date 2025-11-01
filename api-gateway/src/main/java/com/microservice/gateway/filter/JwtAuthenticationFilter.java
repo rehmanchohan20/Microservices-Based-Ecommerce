@@ -72,6 +72,8 @@ public class JwtAuthenticationFilter implements GlobalFilter, Ordered {
                     .header("X-User-Id", claims.getSubject())
                     .build();
 
+            System.out.println("[JWT Filter] token with new header: " + exchange);
+
         } catch (Exception e) {
             System.out.println("[JWT Filter] Token validation failed: " + e.getMessage());
             exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);

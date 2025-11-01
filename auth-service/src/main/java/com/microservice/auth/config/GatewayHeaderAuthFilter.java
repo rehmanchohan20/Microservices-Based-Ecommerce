@@ -19,6 +19,13 @@ public class GatewayHeaderAuthFilter extends OncePerRequestFilter {
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
 
+        String path = request.getRequestURI();
+        if (path.startsWith("/auth/register") || path.startsWith("/auth/login")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
+
         String userId = request.getHeader("X-User-Id");
         if (userId == null || userId.isEmpty()) {
             response.sendError(HttpStatus.FORBIDDEN.value(), "Forbidden: missing X-User-Id");
