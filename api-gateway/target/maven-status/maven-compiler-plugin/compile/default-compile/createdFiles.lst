@@ -1,0 +1,4 @@
+com\microservice\gateway\filter\JwtAuthenticationFilter.class
+com\microservice\gateway\tectcontroller\service.class
+com\microservice\gateway\GatewayApplication.class
+com\microservice\gateway\tectcontroller\controller.class

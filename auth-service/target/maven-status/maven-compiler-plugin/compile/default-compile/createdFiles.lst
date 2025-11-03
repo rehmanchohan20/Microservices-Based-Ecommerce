@@ -1,0 +1,15 @@
+com\microservice\auth\model\User.class
+com\microservice\auth\exceptions\GlobalExceptionHandler.class
+com\microservice\auth\enums\RoleEnums.class
+com\microservice\auth\vo\base\BaseEntity.class
+com\microservice\auth\controller\AuthController.class
+com\microservice\auth\model\base\BaseEntity.class
+com\microservice\auth\config\GatewayHeaderAuthFilter.class
+com\microservice\auth\service\AuthService.class
+com\microservice\auth\repo\UserRepository.class
+com\microservice\auth\exceptions\ResourceNotFoundException.class
+com\microservice\auth\response\Response.class
+com\microservice\auth\util\JwtUtil.class
+com\microservice\auth\vo\UserVo.class
+com\microservice\auth\AuthServiceApplication.class
+com\microservice\auth\config\SecurityConfig.class

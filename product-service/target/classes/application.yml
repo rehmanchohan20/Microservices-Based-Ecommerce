@@ -1,0 +1,25 @@
+spring:
+  config:
+    import: optional:configserver:http://localhost:8888
+  application:
+    name: product-service
+
+#server:
+#  port: 0 # optional: picks free port automatically
+#
+#spring:
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/productdb?useSSL=false&allowPublicKeyRetrieval=true
+#    username: root
+#    password: root
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#  application:
+#    name: product-service
+#
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/

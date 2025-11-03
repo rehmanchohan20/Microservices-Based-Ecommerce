@@ -1,0 +1,44 @@
+spring:
+  config:
+    import: optional:configserver:http://localhost:8888
+  application:
+    name: auth-service
+jwt:
+  secret: ${JWT_SECRET_KEY}
+#server:
+#  port: 0 # optional: picks free port automatically
+#
+#spring:
+#  application:
+#    name: auth-service
+#
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/authdb?useSSL=false&allowPublicKeyRetrieval=true
+#    username: root
+#    password: root
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#  cloud:
+#    config:
+#      enabled: false
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  endpoint:
+#    health:
+#      show-details: always
+#
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+#  instance:
+#    prefer-ip-address: true
+#    health-check-url-path: /actuator/health
+#    status-page-url-path: /actuator/info

@@ -1,5 +1,6 @@
 package com.microservice.gateway.filter;
 
+import com.ctc.wstx.util.StringUtil;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
