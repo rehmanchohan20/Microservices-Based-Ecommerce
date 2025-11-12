@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 import java.security.Key;
 import java.util.Base64;
 import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 @Component
 public class JwtUtil {
@@ -25,10 +27,15 @@ public class JwtUtil {
         key = Keys.hmacShaKeyFor(Base64.getDecoder().decode(secret));
     }
 
-    public String generateToken(String username) {
+    public String generateToken(String username, String role, Long userId) {
         Date now = new Date();
+        Map<String, Object> data = new LinkedHashMap<>();
+        data.put("username", username);
+        data.put("role", role);
+        data.put("userId", userId);
         return Jwts.builder()
                 .setSubject(username)
+                .addClaims(data)
                 .setIssuedAt(now)
                 .setExpiration(new Date(now.getTime() + validity))
                 .signWith(key)

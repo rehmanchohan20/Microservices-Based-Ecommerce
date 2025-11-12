@@ -41,7 +41,7 @@ public class AuthService {
         Map<String, Object> map = new LinkedHashMap<>();
         loginValidations(userVo);
         User loginUser = getLoginUser(userVo);
-        String token = jwtUtil.generateToken(loginUser.getUsername());
+        String token = jwtUtil.generateToken(loginUser.getUsername(), loginUser.getRole().name(), loginUser.getId());
         UserVo mapped = mapToVo(loginUser);
         map.put("user", mapped);
         map.put("token", token);

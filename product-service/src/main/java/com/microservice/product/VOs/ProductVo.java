@@ -22,4 +22,6 @@ public class ProductVo {
     @NotNull(message = "Product price is required")
     @DecimalMin(value = "0.01", message = "Product price must be greater than zero")
     private BigDecimal price;
+
+    private Long userId;
 }

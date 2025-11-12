@@ -25,16 +25,18 @@ public class ProductService {
         if(all.isEmpty()){
             throw new ResourceNotFoundException("No products found");
         }
-        List<ProductVo> mapped = all.stream().map(this::mapToVo).collect(Collectors.toList());
+        List<ProductVo> mapped = all.stream()
+                .map(product -> mapToVo(product))
+                .collect(Collectors.toList());
         return Response.setResponse(true, "data fetched successfully", mapped);
     }
 
     @Transactional
-    public Response create(ProductVo productVo) {
+    public Response create(ProductVo productVo, Long userId) {
         boolean isUpdate = productVo.getId() != null && productVo.getId() > 0;
         validations(productVo, isUpdate);
         Product product = getOrCreateProduct(productVo.getId());
-        mapToEntity(productVo, product);
+        mapToEntity(productVo, product, userId);
         Product savedProduct = productRepository.save(product);
         ProductVo mapped = mapToVo(savedProduct);
         return Response.setResponse(true, "Product created successfully", mapped);
@@ -84,10 +86,11 @@ public class ProductService {
     }
 
 
-    private void mapToEntity(ProductVo productVo, Product product) {
+    private void mapToEntity(ProductVo productVo, Product product, Long userId) {
         product.setName(productVo.getName());
         product.setDescription(productVo.getDescription());
         product.setPrice(productVo.getPrice());
+        product.setUserId(userId);
     }
 
     private ProductVo mapToVo(Product product) {
@@ -96,6 +99,7 @@ public class ProductService {
         productVo.setName(product.getName());
         productVo.setDescription(product.getDescription());
         productVo.setPrice(product.getPrice());
+        productVo.setUserId(product.getUserId());
         return productVo;
     }
 

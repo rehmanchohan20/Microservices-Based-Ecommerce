@@ -28,10 +28,13 @@ public class ProductController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> create(@CurrentUser String username,
+    public ResponseEntity<?> create(@CurrentUser("name") String username,
+            @CurrentUser("id") Long userId,
             @Valid @RequestBody ProductVo productVo){
-        System.out.println("Current User: " + username);
-        Response response = productService.create(productVo);
+        System.out.println("Current User Name: " + username);
+        System.out.println("Current User Id: " + userId);
+
+        Response response = productService.create(productVo, userId);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
@@ -42,8 +45,8 @@ public class ProductController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<?> update(@Valid @RequestBody ProductVo productVo){
-        Response response = productService.create(productVo);
+    public ResponseEntity<?> update(@Valid @RequestBody ProductVo productVo, @CurrentUser("id") Long userId){
+        Response response = productService.create(productVo, userId);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
