@@ -3,6 +3,7 @@
 This ZIP contains a small microservices example with:
 - **auth-service** — JWT authentication + MySQL users table
 - **product-service** — Product CRUD + MySQL products table (JWT-protected)
+- **config-server** — Spring Config Server with the config data
 - **eureka-server** — Spring Cloud Eureka service registry
 - **api-gateway** — Spring Cloud Gateway (routes + JWT prefilter skeleton)
 
